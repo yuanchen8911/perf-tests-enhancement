@@ -42,6 +42,7 @@ type ClusterConfig struct {
 	MasterName                 string
 	KubemarkRootKubeConfigPath string
 	DeleteStaleNamespaces      bool
+	DeleteAutomanagedNamespaces  bool
 	// SSHToMasterSupported determines whether SSH access to master machines is possible.
 	// If false (impossible for many  providers), ClusterLoader will skip operations requiring it.
 	SSHToMasterSupported bool

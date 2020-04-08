@@ -372,6 +372,9 @@ func isErrsCritical(*errors.ErrorList) bool {
 }
 
 func cleanupResources(ctx Context) {
+	if  !ctx.GetClusterFramework().GetClusterConfig().DeleteAutomanagedNamespaces {
+	   return
+	}
 	cleanupStartTime := time.Now()
 	ctx.GetMeasurementManager().Dispose()
 	if errList := ctx.GetClusterFramework().DeleteAutomanagedNamespaces(); !errList.IsEmpty() {
